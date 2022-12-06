@@ -12,7 +12,7 @@ const ManageDoctors = () => {
         queryKey: ["doctors"],
         queryFn: async () => {
             try {
-                const res = await fetch(`http://localhost:5000/dashboard/doctors`, {
+                const res = await fetch(`https://doctors-portal-server-nine-cyan.vercel.app/dashboard/doctors`, {
                     headers: {
                         authorization:`bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -29,7 +29,7 @@ const ManageDoctors = () => {
         setDeletingDoctor(null)
     }
     const handleDeleteDoctor=doctor=>{
-        fetch(`http://localhost:5000/dashboard/doctors/${doctor?._id}`,{
+        fetch(`https://doctors-portal-server-nine-cyan.vercel.app/dashboard/doctors/${doctor?._id}`,{
             method:'DELETE',
             headers:{
                 authorization: `bearer ${localStorage.getItem('accessToken')}`

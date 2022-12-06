@@ -31,7 +31,7 @@ const router = createBrowserRouter([
         {path:'/dashboard/allUsers',element:<AdminRoute><AllUsers></AllUsers></AdminRoute>},
         {path:'/dashboard/addDoctor',element:<AdminRoute><AddDoctor></AddDoctor></AdminRoute>},
         {path:'/dashboard/manageDoctors',element:<AdminRoute><ManageDoctors></ManageDoctors></AdminRoute>},
-        {path:'/dashboard/payment/:id',element:<Payment></Payment>,loader:({params})=>fetch(`http://localhost:5000/bookings/${params.id}`)},
+        {path:'/dashboard/payment/:id',element:<Payment></Payment>,loader:({params})=>fetch(`https://doctors-portal-server-nine-cyan.vercel.app/bookings/${params.id}`)},
     ] },
 ])
 
