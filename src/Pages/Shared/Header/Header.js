@@ -42,7 +42,6 @@ const Header = () => {
                 </ul>
             </div>
             <label htmlFor="dashboard-drawer" className=" px-10 lg:hidden navbar-end">
-                       
                         <img src={icon} alt="" />
                     </label>
         </div>

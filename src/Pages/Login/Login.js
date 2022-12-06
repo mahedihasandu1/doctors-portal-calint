@@ -25,8 +25,7 @@ const Login = () => {
         signIn(data.email, data.password)
             .then(result => {
                 const user = result.user;
-                setLoginUserEmail(data.email)
-                console.log(user)
+                setLoginUserEmail(user.email)
             }).catch(error => {
                 console.log(error.message)
                 setLoginError(error.message);

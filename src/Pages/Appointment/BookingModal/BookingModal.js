@@ -5,7 +5,7 @@ import { AuthContext } from '../../../Context/AuthProvider';
 
 const BookingModal = ({ treatment, setTreatment, selectedDate ,refetch}) => {
     const { user } = useContext(AuthContext)
-    const { name, slots } = treatment
+    const { name, slots ,price} = treatment
     const date = format(selectedDate, 'PP')
     console.log(user);
     const handleSubmit = e => {
@@ -21,7 +21,8 @@ const BookingModal = ({ treatment, setTreatment, selectedDate ,refetch}) => {
             patient,
             slot,
             email,
-            phone
+            phone,
+            price
         }
         console.log(booking)
         fetch('http://localhost:5000/bookings', {
@@ -49,7 +50,7 @@ const BookingModal = ({ treatment, setTreatment, selectedDate ,refetch}) => {
             <div className="modal">
                 <div className="modal-box relative">
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="text-lg font-bold">{name}</h3>
+                    <h3 className="text-lg font-bold">  {name}</h3>
                     <form onSubmit={handleSubmit} className='grid gap-3 mt-10'>
                         <input  type="text" readOnly disabled value={date} className="input input-bordered w-full " />
                         <select name='slot' className="select select-bordered w-full ">

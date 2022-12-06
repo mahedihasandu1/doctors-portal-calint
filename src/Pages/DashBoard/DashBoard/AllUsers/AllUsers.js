@@ -6,7 +6,7 @@ const AllUsers = () => {
     const { data: users = [], refetch } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users`)
+            const res = await fetch(`http://localhost:5000/users/?`)
             const data = res.json()
             return data
         }
@@ -45,6 +45,7 @@ const AllUsers = () => {
                         {
                             users.map((user, i) => <tr key={user?._id} className="hover">
                                 <th>{i + 1}</th>
+                                
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{ user?.role !== 'Admin' ? <button onClick={()=>handleMakeAdmin(user?._id)} className='btn btn-xs btn-primary bg-gradient-to-r from-primary to-secondary text-white'>Make Admin</button>:<button onClick={()=>handleMakeAdmin(user?._id)} className='btn btn-disabled text-red-600 '>{user?.role}</button>}</td>

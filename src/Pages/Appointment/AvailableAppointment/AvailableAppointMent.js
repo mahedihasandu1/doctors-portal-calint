@@ -6,17 +6,9 @@ import BookingModal from '../BookingModal/BookingModal';
 import AvailableAppointmentOption from './AvailableAppointmentOption';
 
 const AvailableAppointMent = ({ selectedDate }) => {
-    // const [availableOptions, setAvailableOptions] = useState([])
     const [treatment, setTreatment] = useState(null)
-   const date=format(selectedDate,'PP')
+    const date=format(selectedDate,'PP')
 
-
-    // const {data:availableOptions=[]}=useQueries({
-    //     queryKey:['availableOptions'],
-    //     queryFn:()=>fetch('http://localhost:5000/availableOptions')
-    //     .then(res => res.json())
-
-    // })
     const { data: availableOptions = [],refetch ,isLoading} = useQuery({
         queryKey: ['availableOptions',date],
         queryFn: async () => {
@@ -30,14 +22,6 @@ const AvailableAppointMent = ({ selectedDate }) => {
     }
 
 
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/availableOptions`)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setAvailableOptions(data)
-    //             console.log(data);
-    //         })
-    // }, [])
     return (
         <section className='mt-20'>
             <p className='text-center text-lg font-bold text-secondary '>Available Appointment On :{format(selectedDate, 'PP')}</p>
